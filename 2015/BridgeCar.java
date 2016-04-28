@@ -2,13 +2,19 @@
 
 /* 
 
-Here is a full solution to the problem ( I think ). If you find bugs tell me!
+Here is a solution to a more complex problem! Kind of worth going through
 
-This isn't required for the actual exam, you only need to worry about entering lane A and the bridge.
+Rules: 
 
-But I implemented the entire thing :/ 
+Car can't enter if total weight > 5000
+car can't enter lane a if lane a weight > 2000
+car can't enter lane b if lane b weight > 2000 
+
+useful for practising lock scoping
 
 Lazy code follows
+
+Note: this only came about cos i misread the question. fml.
 
 */
 
