@@ -2,7 +2,7 @@ import java.util.Random;
 
 public class QuestionTwo {
 	public static void main(final String[] args){
-		Student[] studentList = new Student[15];
+		Student[] studentList = new Student[45];
 		ComputerLabMonitor comp = new ComputerLabMonitor();
 		for(int i = 0; i< studentList.length ; i++){
 			studentList[i] = new Student(i,comp);
@@ -13,7 +13,7 @@ public class QuestionTwo {
 }
 
 class ComputerLabMonitor{
-	private int freeComputers = 10;
+	private int freeComputers = 30;
 	private int waiting = 0;
 	private int rejectStudentCount = 0;
 
@@ -37,7 +37,7 @@ class ComputerLabMonitor{
 		notify();
 	}
 
-	public void waitInLabs(Student student) throws InterruptedException {
+	public synchronized void waitInLabs(Student student) throws InterruptedException {
 		System.out.println("Number waiting: "+waiting );
 		if(waiting >= 5){
 			rejectStudent(student);
@@ -51,7 +51,7 @@ class ComputerLabMonitor{
 		notify();
 	}
 
-	public void rejectStudent(Student student) throws InterruptedException {
+	public synchronized void rejectStudent(Student student) throws InterruptedException {
 		student.interrupt();
 		System.out.println("student is gone: "+student.id);
 		rejectStudentCount++;

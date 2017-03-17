@@ -14,20 +14,14 @@ public class CyclicBarrierImplementation {
 		RunAThreadNew t3 = new RunAThreadNew(3,barrierNew);
 		RunAThreadNew t4 = new RunAThreadNew(4,barrierNew);
 		try{
-
-
 			// t1.start();
 			// t2.start();
-
 			t3.start();
 			t4.start();
-
 		} catch (Exception e ){
 
 		}
 		//System.out.println("I can continue!");
-
-
 	}
 }
 
@@ -46,7 +40,6 @@ class RunAThread extends Thread{
 			Thread.sleep(100);
 			barrier.await();
 			System.out.println("I'm running again!");
-
 		}catch (InterruptedException e){
 			//
 		}
@@ -65,7 +58,6 @@ class CyclicBarrier {
 
 	public synchronized void await() throws InterruptedException {
 		threadCount--;
-
 		if(threadCount > 0){
 			this.wait();
 		} else {
